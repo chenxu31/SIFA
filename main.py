@@ -6,23 +6,35 @@ import random
 import os
 import cv2
 import time
+import argparse
+import h5py
+import common_metrics
+import pdb
+import logging
 
-import tensorflow as tf
+#import tensorflow.compat.v1 as tf
+#tf.disable_v2_behavior()
 
 import data_loader, losses, model
 from stats_func import *
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
-save_interval = 300
-evaluation_interval = 10
+save_interval = 5000
+evaluation_interval = 1000
 random_seed = 1234
+
+
+logging.basicConfig(filename = "curr_log", level=logging.DEBUG, format='%(asctime)s %(message)s')
+#if verbose == True:
+logging.getLogger().addHandler(logging.StreamHandler())
+logging.getLogger().setLevel(logging.DEBUG)
 
 
 class SIFA:
     """The SIFA module."""
 
-    def __init__(self, config):
+    def __init__(self, args, config):
         current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
         self._source_train_pth = config['source_train_pth']
         self._target_train_pth = config['target_train_pth']
@@ -47,6 +59,12 @@ class SIFA:
         self._lr_gan_decay = bool(config['lr_gan_decay'])
         self._to_restore = bool(config['to_restore'])
         self._checkpoint_dir = config['checkpoint_dir']
+
+        f = h5py.File(os.path.join(args.test_dir, "ct_test.h5"), "r")
+        test_data, test_label = np.array(f["data"], np.float32), np.array(f["label"], np.uint8)
+        self.test_data = test_data.transpose((0, 2, 3, 1))
+        self.test_label = test_label.transpose((0, 2, 3, 1))
+        f.close()
 
         self.fake_images_A = np.zeros(
             (self._pool_size, self._batch_size, model.IMG_HEIGHT, model.IMG_WIDTH, 1))
@@ -305,6 +323,40 @@ class SIFA:
             else:
                 return fake
 
+    def evaluate(self, sess):
+        dsc_list = np.zeros((self.test_data.shape[0], self._num_cls - 1), np.float32)
+        assd_list = np.zeros((self.test_data.shape[0], self._num_cls - 1), np.float32)
+        feed_dict = {
+            self.is_training: False,
+            self.keep_rate: 1.0,
+        }
+
+        ids = list(range(0, self.test_data.shape[3] - self._batch_size + 1, self._batch_size))
+        if ids[-1] + self._batch_size < self.test_data.shape[3]:
+            ids.append(self.test_data.shape[3] - self._batch_size)
+        for i in range(0, self.test_data.shape[0]):
+            pred = np.zeros(list(self.test_data.shape[1:]) + [self._num_cls,], np.float32)
+            used = np.zeros(self.test_data.shape[1:], np.float32)
+            for j in ids:
+                feed_dict[self.input_b] = self.test_data[i:i + 1, :, :, j:j + self._batch_size].transpose((3, 1, 2, 0))
+
+                ret = sess.run(self.predicter_b, feed_dict=feed_dict)
+
+                pred[:, :, j:j + self._batch_size, :] += ret.transpose((1, 2, 0, 3))
+                used[:, :, j:j + self._batch_size] += 1
+
+            assert used.min() > 0
+            pred /= np.expand_dims(used, -1)
+            pred = pred.argmax(-1).astype(np.float32)
+
+            dsc = common_metrics.calc_multi_dice(pred, self.test_label[i], self._num_cls)
+            assd = common_metrics.calc_multi_assd(pred, self.test_label[i], self._num_cls)
+
+            dsc_list[i, :] = dsc
+            assd_list[i, :] = assd
+
+        return dsc_list, assd_list
+
     def train(self):
 
         # Load Dataset
@@ -505,10 +557,11 @@ class SIFA:
                 writer.flush()
                 self.num_fake_inputs += 1
 
-                print ('iter {}: processing time {}'.format(cnt, time.time() - starttime))
+                #print ('iter {}: processing time {}'.format(cnt, time.time() - starttime))
                 
                 # batch evaluation
                 if (i + 1) % evaluation_interval == 0:
+                    """
                     summary_str_fake_b, summary_str_b = sess.run([self.dice_fake_b_mean_summ, self.dice_b_mean_summ],
                                                                  feed_dict={
                                                                      self.input_a: inputs['images_i'],
@@ -531,10 +584,16 @@ class SIFA:
                         })
                     writer_val.add_summary(summary_str, cnt)
                     writer_val.flush()
+                    """
+                    logging.info("step:%d" % (i + 1))
+                    dsc, assd = self.evaluate(sess)
+                    logging.info("dsc:%f/%f  assd:%f/%f" % (dsc.mean(), dsc.std(), assd.mean(), assd.std()))
+                    if dsc.mean() > 0.72 and dsc.mean() < 0.74:
+                        saver.save(sess, os.path.join(self._output_dir, "sifa_final"), global_step=0)
 
                 if (cnt+1) % save_interval ==0:
 
-                    self.save_images(sess, cnt)
+                    #self.save_images(sess, cnt)
                     saver.save(sess, os.path.join(
                         self._output_dir, "sifa"), global_step=cnt)
 
@@ -543,16 +602,32 @@ class SIFA:
             writer.add_graph(sess.graph)
 
 
-def main(config_filename):
+def main(args, config_filename):
     
     tf.set_random_seed(random_seed)
 
     with open(config_filename) as config_file:
         config = json.load(config_file)
 
-    sifa_model = SIFA(config)
+    sifa_model = SIFA(args, config)
     sifa_model.train()
 
 
 if __name__ == '__main__':
-    main(config_filename='./config_param.json')
+
+
+    parser = argparse.ArgumentParser(description='')
+    parser.add_argument('--gpu', type=int, default=0, help="gpu device id")
+    parser.add_argument('--test_dir', type=str, default="/shenlab/lab_stor/xuchen/data/mmwhs", help="test dir")
+
+    args = parser.parse_args()
+
+    if args.gpu >= 0:
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
+    else:
+        os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
+
+    main(args, config_filename='./config_param.json')

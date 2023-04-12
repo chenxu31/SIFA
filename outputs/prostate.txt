@@ -1,0 +1,113 @@
+(base) D:\github\SIFA>python main_prostate.py --gpu 0 --data_dir D:\datasets\prostate\h5_data --output_root_dir D:\training\logs\sifa\prostate --checkpoint_dir D:\training\checkpoints\sifa\prostate --save_interval 1000000 --max_step 100000 --evaluation_interval 1000 > outputs\prostate.txt
+D:\Anaconda\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+2021-06-22 11:09:24.382727: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:1392] Found device 0 with properties:
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.99GiB
+2021-06-22 11:09:24.383053: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:1471] Adding visible gpu devices: 0
+2021-06-22 11:09:24.914727: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:952] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-06-22 11:09:24.914885: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:958]      0
+2021-06-22 11:09:24.915666: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:971] 0:   N
+2021-06-22 11:09:24.916144: I c:\users\user\source\repos\tensorflow\tensorflow\core\common_runtime\gpu\gpu_device.cc:1084] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9668 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Validation (1000) val_dsc:0.598025/0.128574  test_dsc:0.528112/0.250612  test_assd:6.450229/4.139908
+Validation (2000) val_dsc:0.509791/0.148087  test_dsc:0.505429/0.267014  test_assd:5.722284/3.501199
+Validation (3000) val_dsc:0.670502/0.123130  test_dsc:0.589591/0.279838  test_assd:4.029685/2.375180
+Validation (4000) val_dsc:0.445519/0.222007  test_dsc:0.479645/0.291459  test_assd:666670.562500/2494437.000000
+Validation (5000) val_dsc:0.603468/0.173597  test_dsc:0.523248/0.265744  test_assd:6.250711/4.294860
+Validation (6000) val_dsc:0.672739/0.151721  test_dsc:0.561224/0.302848  test_assd:4.587713/4.134950
+Validation (7000) val_dsc:0.704634/0.123146  test_dsc:0.581264/0.279895  test_assd:4.502243/3.052243
+Validation (8000) val_dsc:0.631892/0.129948  test_dsc:0.504270/0.321492  test_assd:4.518819/3.578995
+Validation (9000) val_dsc:0.610359/0.198239  test_dsc:0.487012/0.347910  test_assd:333337.687500/1795054.125000
+Validation (10000) val_dsc:0.687991/0.138352  test_dsc:0.528363/0.312281  test_assd:4.018059/2.672399
+Validation (11000) val_dsc:0.655932/0.175290  test_dsc:0.585517/0.296819  test_assd:3.375275/2.109385
+Validation (12000) val_dsc:0.673516/0.127739  test_dsc:0.529885/0.292364  test_assd:4.270654/2.490734
+Validation (13000) val_dsc:0.602667/0.158220  test_dsc:0.576902/0.278749  test_assd:4.948569/3.538761
+Validation (14000) val_dsc:0.703966/0.130644  test_dsc:0.580628/0.295748  test_assd:3.383806/2.007633
+Validation (15000) val_dsc:0.675730/0.116656  test_dsc:0.576214/0.278550  test_assd:3.824333/2.280771
+Validation (16000) val_dsc:0.717849/0.131110  test_dsc:0.614018/0.293646  test_assd:3.127027/1.903433
+Validation (17000) val_dsc:0.741173/0.098406  test_dsc:0.602244/0.289300  test_assd:3.182510/1.813736
+Validation (18000) val_dsc:0.727817/0.107090  test_dsc:0.628823/0.291991  test_assd:3.189941/2.000220
+Validation (19000) val_dsc:0.723451/0.116170  test_dsc:0.592777/0.283440  test_assd:3.894011/2.801975
+Validation (20000) val_dsc:0.733048/0.103432  test_dsc:0.604285/0.287879  test_assd:3.507330/2.293108
+Validation (21000) val_dsc:0.707072/0.128229  test_dsc:0.600027/0.285677  test_assd:3.477062/2.229078
+Validation (22000) val_dsc:0.719286/0.122895  test_dsc:0.605307/0.283208  test_assd:4.204306/3.036744
+Validation (23000) val_dsc:0.707075/0.113236  test_dsc:0.612861/0.285359  test_assd:3.663167/2.392632
+Validation (24000) val_dsc:0.718901/0.123033  test_dsc:0.556923/0.276500  test_assd:4.248458/2.929423
+Validation (25000) val_dsc:0.624428/0.192214  test_dsc:0.493238/0.260667  test_assd:7.572006/7.077126
+Validation (26000) val_dsc:0.716920/0.132476  test_dsc:0.572842/0.293782  test_assd:3.383717/2.047537
+Validation (27000) val_dsc:0.678695/0.105360  test_dsc:0.590943/0.282695  test_assd:3.365116/2.071774
+Validation (28000) val_dsc:0.691002/0.128534  test_dsc:0.615749/0.294760  test_assd:3.374610/2.022169
+Validation (29000) val_dsc:0.659915/0.194860  test_dsc:0.564591/0.293770  test_assd:4.070715/2.511063
+Validation (30000) val_dsc:0.651295/0.097654  test_dsc:0.528046/0.272582  test_assd:5.343233/4.216496
+Validation (31000) val_dsc:0.714560/0.122926  test_dsc:0.590952/0.280670  test_assd:3.720613/2.316400
+Validation (32000) val_dsc:0.710405/0.121052  test_dsc:0.619092/0.290574  test_assd:3.204944/2.015846
+Validation (33000) val_dsc:0.731698/0.093139  test_dsc:0.609570/0.291840  test_assd:2.979419/1.792858
+Validation (34000) val_dsc:0.742766/0.107384  test_dsc:0.615063/0.287445  test_assd:3.243778/1.914380
+Validation (35000) val_dsc:0.697858/0.135043  test_dsc:0.590925/0.290717  test_assd:4.144229/2.668196
+Validation (36000) val_dsc:0.707601/0.111211  test_dsc:0.625097/0.290913  test_assd:3.278267/2.358945
+Validation (37000) val_dsc:0.742611/0.109706  test_dsc:0.632370/0.294193  test_assd:3.228295/2.297477
+Validation (38000) val_dsc:0.722029/0.113707  test_dsc:0.563589/0.286784  test_assd:3.614017/2.193465
+Validation (39000) val_dsc:0.733907/0.119433  test_dsc:0.622077/0.291055  test_assd:3.142596/1.884261
+Validation (40000) val_dsc:0.720249/0.104996  test_dsc:0.630617/0.296640  test_assd:3.055055/2.035007
+Validation (41000) val_dsc:0.717265/0.116218  test_dsc:0.611209/0.294355  test_assd:2.934553/1.695539
+Validation (42000) val_dsc:0.701566/0.128342  test_dsc:0.578038/0.302090  test_assd:3.412680/2.323595
+Validation (43000) val_dsc:0.730218/0.107821  test_dsc:0.626081/0.290740  test_assd:3.315835/2.124007
+Validation (44000) val_dsc:0.731415/0.091536  test_dsc:0.630440/0.294625  test_assd:2.985530/1.822376
+Validation (45000) val_dsc:0.743664/0.124590  test_dsc:0.624124/0.290107  test_assd:3.153548/2.009890
+Validation (46000) val_dsc:0.708430/0.144364  test_dsc:0.620725/0.294724  test_assd:3.226596/1.979357
+Validation (47000) val_dsc:0.747960/0.110064  test_dsc:0.631228/0.290964  test_assd:3.308770/2.494160
+Validation (48000) val_dsc:0.728441/0.118606  test_dsc:0.633974/0.296663  test_assd:2.922400/1.726473
+Validation (49000) val_dsc:0.751111/0.109047  test_dsc:0.641753/0.296186  test_assd:2.759328/1.693314
+Validation (50000) val_dsc:0.740013/0.100827  test_dsc:0.618109/0.290400  test_assd:3.218089/2.009991
+Validation (51000) val_dsc:0.732600/0.111798  test_dsc:0.643116/0.296353  test_assd:2.979058/1.792589
+Validation (52000) val_dsc:0.737318/0.104359  test_dsc:0.618278/0.291436  test_assd:3.001706/1.814381
+Validation (53000) val_dsc:0.744878/0.112216  test_dsc:0.629526/0.294332  test_assd:3.034823/1.887162
+Validation (54000) val_dsc:0.744556/0.106478  test_dsc:0.632591/0.295116  test_assd:3.132255/2.020779
+Validation (55000) val_dsc:0.732557/0.118879  test_dsc:0.628369/0.290081  test_assd:3.175796/1.875577
+Validation (56000) val_dsc:0.738759/0.110450  test_dsc:0.640796/0.297761  test_assd:2.982892/1.847202
+Validation (57000) val_dsc:0.740417/0.112384  test_dsc:0.645115/0.297127  test_assd:2.900117/1.878406
+Validation (58000) val_dsc:0.747435/0.100834  test_dsc:0.636902/0.294339  test_assd:2.887313/1.831966
+Validation (59000) val_dsc:0.735604/0.114528  test_dsc:0.637555/0.295182  test_assd:2.956204/1.872351
+Validation (60000) val_dsc:0.755030/0.102675  test_dsc:0.637090/0.295399  test_assd:2.947631/1.805543
+Validation (61000) val_dsc:0.717504/0.129384  test_dsc:0.623408/0.289147  test_assd:3.667076/2.143263
+Validation (62000) val_dsc:0.721621/0.120749  test_dsc:0.640194/0.295293  test_assd:3.310937/2.091243
+Validation (63000) val_dsc:0.747146/0.104871  test_dsc:0.649866/0.299261  test_assd:2.935044/1.827818
+Validation (64000) val_dsc:0.722360/0.105230  test_dsc:0.597592/0.287980  test_assd:3.284517/1.875788
+Validation (65000) val_dsc:0.753736/0.106591  test_dsc:0.643941/0.295647  test_assd:2.869306/1.770180
+Validation (66000) val_dsc:0.742157/0.111138  test_dsc:0.642242/0.295677  test_assd:2.807560/1.772502
+Validation (67000) val_dsc:0.736311/0.095532  test_dsc:0.623343/0.290876  test_assd:3.347159/2.259785
+Validation (68000) val_dsc:0.755245/0.101698  test_dsc:0.648062/0.299267  test_assd:2.949395/1.834261
+Validation (69000) val_dsc:0.744920/0.116070  test_dsc:0.641396/0.295483  test_assd:2.781847/1.651199
+Validation (70000) val_dsc:0.748996/0.119086  test_dsc:0.620901/0.294648  test_assd:3.079875/1.889773
+Validation (71000) val_dsc:0.745107/0.100390  test_dsc:0.640314/0.295541  test_assd:3.050728/2.012277
+Validation (72000) val_dsc:0.740340/0.105090  test_dsc:0.637600/0.295755  test_assd:3.020216/1.907162
+Validation (73000) val_dsc:0.742858/0.111151  test_dsc:0.636605/0.292438  test_assd:3.289058/1.937704
+Validation (74000) val_dsc:0.748805/0.106393  test_dsc:0.651871/0.301905  test_assd:2.724828/1.656473
+Validation (75000) val_dsc:0.717963/0.120435  test_dsc:0.632235/0.292010  test_assd:3.067046/1.871880
+Validation (76000) val_dsc:0.737620/0.109155  test_dsc:0.642858/0.295613  test_assd:3.272676/2.248194
+Validation (77000) val_dsc:0.756823/0.102686  test_dsc:0.644775/0.297065  test_assd:2.714453/1.607524
+Validation (78000) val_dsc:0.733593/0.116331  test_dsc:0.625902/0.291609  test_assd:3.451709/2.264129
+Validation (79000) val_dsc:0.752755/0.095452  test_dsc:0.625332/0.289829  test_assd:3.501641/2.345525
+Validation (80000) val_dsc:0.686607/0.143849  test_dsc:0.571954/0.298263  test_assd:3.724263/2.651352
+Validation (81000) val_dsc:0.709002/0.142103  test_dsc:0.636485/0.292565  test_assd:2.993469/1.862669
+Validation (82000) val_dsc:0.736134/0.108297  test_dsc:0.628024/0.294134  test_assd:3.040790/1.850852
+Validation (83000) val_dsc:0.692945/0.150609  test_dsc:0.606040/0.297685  test_assd:3.187426/2.108122
+Validation (84000) val_dsc:0.754200/0.101720  test_dsc:0.633510/0.295223  test_assd:3.195422/2.074295
+Validation (85000) val_dsc:0.750517/0.099396  test_dsc:0.627538/0.292448  test_assd:3.345399/2.357475
+Validation (86000) val_dsc:0.752342/0.110243  test_dsc:0.632890/0.294718  test_assd:2.931967/1.775612
+Validation (87000) val_dsc:0.738314/0.095353  test_dsc:0.636165/0.292825  test_assd:2.917607/1.730921
+Validation (88000) val_dsc:0.743522/0.115730  test_dsc:0.624329/0.296042  test_assd:2.973946/1.720309
+Validation (89000) val_dsc:0.728791/0.113482  test_dsc:0.620821/0.295244  test_assd:3.031996/1.737443
+Validation (90000) val_dsc:0.747474/0.113002  test_dsc:0.620845/0.288404  test_assd:3.492791/2.154564
+Validation (91000) val_dsc:0.745169/0.097073  test_dsc:0.620535/0.289332  test_assd:3.248339/2.106663
+Validation (92000) val_dsc:0.731379/0.109275  test_dsc:0.620241/0.289897  test_assd:3.439508/2.093596
+Validation (93000) val_dsc:0.730577/0.114210  test_dsc:0.627173/0.290358  test_assd:3.258935/2.021022
+Validation (94000) val_dsc:0.715296/0.108703  test_dsc:0.610371/0.285610  test_assd:4.557457/3.295968
+Validation (95000) val_dsc:0.739125/0.113289  test_dsc:0.637576/0.294617  test_assd:2.788234/1.685324
+Validation (96000) val_dsc:0.702697/0.131146  test_dsc:0.608595/0.290396  test_assd:3.129699/1.883928
+Validation (97000) val_dsc:0.740330/0.099038  test_dsc:0.630390/0.292254  test_assd:3.267348/2.385147
+Validation (98000) val_dsc:0.720986/0.145485  test_dsc:0.620543/0.297451  test_assd:2.881976/1.739748
+Validation (99000) val_dsc:0.750233/0.100305  test_dsc:0.628124/0.292150  test_assd:3.064589/1.973443
+Validation (100000) val_dsc:0.704980/0.112725  test_dsc:0.617423/0.287607  test_assd:3.544197/2.344170
+Final val_best_dsc:0.756823  test_best_dsc:0.644775/0.297065  test_best_assd:2.714453/1.607524

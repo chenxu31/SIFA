@@ -3,13 +3,15 @@ import json
 import numpy as np
 import os
 import medpy.metric.binary as mmb
+import argparse
 
-import tensorflow as tf
+#import tensorflow.compat.v1 as tf
+#tf.disable_v2_behavior()
 
 import model
 from stats_func import *
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 CHECKPOINT_PATH = '' # model path
 BASE_FID = '' # folder path of test files
@@ -228,4 +230,17 @@ def main(config_filename):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='')
+    parser.add_argument('--gpu', type=int, default=0, help="gpu device id")
+
+    args = parser.parse_args()
+
+    if args.gpu >= 0:
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
+    else:
+        os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
+
     main(config_filename='./config_param.json')

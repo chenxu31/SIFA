@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 
@@ -42,7 +43,7 @@ def dice_eval(compact_pred, labels, n_class):
     dice = 0
     eps = 1e-7
     pred = tf.one_hot(compact_pred, depth = n_class, axis = -1)
-    for i in xrange(n_class):
+    for i in range(n_class):
         inse = tf.reduce_sum(pred[:, :, :, i] * labels[:, :, :, i])
         union = tf.reduce_sum(pred[:, :, :, i]) + tf.reduce_sum(labels[:, :, :, i])
         dice = dice + 2.0 * inse / (union + eps)

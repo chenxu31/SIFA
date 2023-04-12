@@ -4,7 +4,9 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 import layers
 import json
+import pdb
 
+"""
 with open('./config_param.json') as config_file:
     config = json.load(config_file)
 
@@ -16,12 +18,13 @@ IMG_HEIGHT = 256
 
 # The width of each image.
 IMG_WIDTH = 256
+"""
 
 ngf = 32
 ndf = 64
 
 
-def get_outputs(inputs, skip=False, is_training=True, keep_rate=0.75):
+def get_outputs(inputs, data_shapes, batch_size, num_cls, skip=False, is_training=True, keep_rate=0.75):
     images_a = inputs['images_a']
     images_b = inputs['images_b']
     fake_pool_a = inputs['fake_pool_a']
@@ -37,25 +40,25 @@ def get_outputs(inputs, skip=False, is_training=True, keep_rate=0.75):
         prob_real_a_is_real, prob_real_a_aux = discriminator_aux(images_a, "d_A")
         prob_real_b_is_real = current_discriminator(images_b, "d_B")
 
-        fake_images_b = build_generator_resnet_9blocks(images_a, images_a, name='g_A', skip=skip)
+        fake_images_b = build_generator_resnet_9blocks(batch_size, images_a, images_a, name='g_A', skip=skip)
         latent_b, latent_b_ll = current_encoder(images_b, name='e_B', skip=skip, is_training=is_training, keep_rate=keep_rate)
 
-        fake_images_a = current_decoder(latent_b, images_b, name='de_B', skip=skip)
+        fake_images_a = current_decoder(batch_size, latent_b, images_b, name='de_B', skip=skip)
 
-        pred_mask_b = current_segmenter(latent_b, name='s_B', keep_rate=keep_rate)
-        pred_mask_b_ll = current_segmenter(latent_b_ll, name='s_B_ll', keep_rate=keep_rate)
+        pred_mask_b = current_segmenter(latent_b, data_shapes, num_cls, name='s_B', keep_rate=keep_rate)
+        pred_mask_b_ll = current_segmenter(latent_b_ll, data_shapes, num_cls, name='s_B_ll', keep_rate=keep_rate)
 
 
         prob_fake_a_is_real, prob_fake_a_aux_is_real = discriminator_aux(fake_images_a, "d_A")
         prob_fake_b_is_real = current_discriminator(fake_images_b, "d_B")
 
         latent_fake_b, latent_fake_b_ll = current_encoder(fake_images_b, 'e_B', skip=skip, is_training=is_training, keep_rate=keep_rate)
-        cycle_images_b = build_generator_resnet_9blocks(fake_images_a, fake_images_a, 'g_A', skip=skip)
+        cycle_images_b = build_generator_resnet_9blocks(batch_size, fake_images_a, fake_images_a, 'g_A', skip=skip)
 
-        cycle_images_a = current_decoder(latent_fake_b, fake_images_b, 'de_B', skip=skip)
+        cycle_images_a = current_decoder(batch_size, latent_fake_b, fake_images_b, 'de_B', skip=skip)
 
-        pred_mask_fake_b = current_segmenter(latent_fake_b, 's_B', keep_rate=keep_rate)
-        pred_mask_fake_b_ll = current_segmenter(latent_fake_b_ll, 's_B_ll', keep_rate=keep_rate)
+        pred_mask_fake_b = current_segmenter(latent_fake_b, data_shapes, num_cls, 's_B', keep_rate=keep_rate)
+        pred_mask_fake_b_ll = current_segmenter(latent_fake_b_ll, data_shapes, num_cls, 's_B_ll', keep_rate=keep_rate)
 
         prob_fake_pool_a_is_real, prob_fake_pool_a_aux_is_real = discriminator_aux(fake_pool_a, "d_A")
         prob_fake_pool_b_is_real = current_discriminator(fake_pool_b, "d_B")
@@ -151,7 +154,7 @@ def build_drn_block_ds(inputdrn, dim_in, dim_out, name='drn_ds', padding="REFLEC
         return tf.nn.relu(out_drn + inputdrn)
 
 
-def build_generator_resnet_9blocks(inputgen, inputimg, name="generator", skip=False):
+def build_generator_resnet_9blocks(batch_size, inputgen, inputimg, name="generator", skip=False):
     with tf.variable_scope(name):
         f = 7
         ks = 3
@@ -172,8 +175,8 @@ def build_generator_resnet_9blocks(inputgen, inputimg, name="generator", skip=Fa
         o_r8 = build_resnet_block_ins(o_r7, ngf * 4, "r8", padding)
         o_r9 = build_resnet_block_ins(o_r8, ngf * 4, "r9", padding)
 
-        o_c4 = layers.general_deconv2d(o_r9, [BATCH_SIZE, 128, 128, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c4", norm_type='Ins')
-        o_c5 = layers.general_deconv2d(o_c4, [BATCH_SIZE, 256, 256, ngf], ngf, ks, ks, 2, 2, 0.02, "SAME", "c5", norm_type='Ins')
+        o_c4 = layers.general_deconv2d(o_r9, [batch_size, 128, 128, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c4", norm_type='Ins')
+        o_c5 = layers.general_deconv2d(o_c4, [batch_size, 256, 256, ngf], ngf, ks, ks, 2, 2, 0.02, "SAME", "c5", norm_type='Ins')
         o_c6 = layers.general_conv2d_ga(o_c5, 1, f, f, 1, 1, 0.02, "SAME", "c6", do_norm=False, do_relu=False)
 
         if skip is True:
@@ -223,7 +226,7 @@ def build_encoder(inputen, name='encoder', skip=False, is_training=True, keep_ra
         return o_c3, o_r12
 
 
-def build_decoder(inputde, inputimg, name='decoder', skip=False):
+def build_decoder(batch_size, inputde, inputimg, name='decoder', skip=False):
     with tf.variable_scope(name):
         f = 7
         ks = 3
@@ -234,9 +237,9 @@ def build_decoder(inputde, inputimg, name='decoder', skip=False):
         o_r2 = build_resnet_block(o_r1, ngf * 4, "r2", padding, norm_type='Ins')
         o_r3 = build_resnet_block(o_r2, ngf * 4, "r3", padding, norm_type='Ins')
         o_r4 = build_resnet_block(o_r3, ngf * 4, "r4", padding, norm_type='Ins')
-        o_c3 = layers.general_deconv2d(o_r4, [BATCH_SIZE, 64, 64, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c3", norm_type='Ins')
-        o_c4 = layers.general_deconv2d(o_c3, [BATCH_SIZE, 128, 128, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c4", norm_type='Ins')
-        o_c5 = layers.general_deconv2d(o_c4, [BATCH_SIZE, 256, 256, ngf], ngf, ks, ks, 2, 2, 0.02, "SAME", "c5", norm_type='Ins')
+        o_c3 = layers.general_deconv2d(o_r4, [batch_size, 64, 64, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c3", norm_type='Ins')
+        o_c4 = layers.general_deconv2d(o_c3, [batch_size, 128, 128, ngf * 2], ngf * 2, ks, ks, 2, 2, 0.02, "SAME", "c4", norm_type='Ins')
+        o_c5 = layers.general_deconv2d(o_c4, [batch_size, 256, 256, ngf], ngf, ks, ks, 2, 2, 0.02, "SAME", "c5", norm_type='Ins')
         o_c6 = layers.general_conv2d(o_c5, 1, f, f, 1, 1, 0.02, "SAME", "c6", do_norm=False, do_relu=False)
 
         if skip is True:
@@ -247,13 +250,13 @@ def build_decoder(inputde, inputimg, name='decoder', skip=False):
         return out_gen
 
 
-def build_segmenter(inputse, name='segmenter', keep_rate=0.75):
+def build_segmenter(inputse, data_shapes, num_cls, name='segmenter', keep_rate=0.75):
     with tf.variable_scope(name):
 
         k1 = 1
 
-        o_c8 = layers.general_conv2d(inputse, 5, k1, k1, 1, 1, 0.01, 'SAME', 'c8', do_norm=False, do_relu=False, keep_rate=keep_rate)
-        out_seg = tf.image.resize_images(o_c8, (256, 256))
+        o_c8 = layers.general_conv2d(inputse, num_cls, k1, k1, 1, 1, 0.01, 'SAME', 'c8', do_norm=False, do_relu=False, keep_rate=keep_rate)
+        out_seg = tf.image.resize_images(o_c8, (data_shapes["patch_height"], data_shapes["patch_width"]))
 
         return out_seg
 

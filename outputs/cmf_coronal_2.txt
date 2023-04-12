@@ -1,0 +1,335 @@
+/usr/local/lib/python2.7/dist-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Model/d_A/c1/Conv/weights:0
+Model/d_A/c2/Conv/weights:0
+Model/d_A/c2/instance_norm/InstanceNorm/beta:0
+Model/d_A/c2/instance_norm/InstanceNorm/gamma:0
+Model/d_A/c3/Conv/weights:0
+Model/d_A/c3/instance_norm/InstanceNorm/beta:0
+Model/d_A/c3/instance_norm/InstanceNorm/gamma:0
+Model/d_A/c4/Conv/weights:0
+Model/d_A/c4/instance_norm/InstanceNorm/beta:0
+Model/d_A/c4/instance_norm/InstanceNorm/gamma:0
+Model/d_A/c5/Conv/weights:0
+Model/d_B/c1/Conv/weights:0
+Model/d_B/c2/Conv/weights:0
+Model/d_B/c2/instance_norm/InstanceNorm/beta:0
+Model/d_B/c2/instance_norm/InstanceNorm/gamma:0
+Model/d_B/c3/Conv/weights:0
+Model/d_B/c3/instance_norm/InstanceNorm/beta:0
+Model/d_B/c3/instance_norm/InstanceNorm/gamma:0
+Model/d_B/c4/Conv/weights:0
+Model/d_B/c4/instance_norm/InstanceNorm/beta:0
+Model/d_B/c4/instance_norm/InstanceNorm/gamma:0
+Model/d_B/c5/Conv/weights:0
+Model/g_A/c1/Conv/weights:0
+Model/g_A/c1/Conv/biases:0
+Model/g_A/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/c2/Conv/weights:0
+Model/g_A/c2/Conv/biases:0
+Model/g_A/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/c3/Conv/weights:0
+Model/g_A/c3/Conv/biases:0
+Model/g_A/c3/instance_norm/InstanceNorm/beta:0
+Model/g_A/c3/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r1/c1/Conv/weights:0
+Model/g_A/r1/c1/Conv/biases:0
+Model/g_A/r1/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r1/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r1/c2/Conv/weights:0
+Model/g_A/r1/c2/Conv/biases:0
+Model/g_A/r1/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r1/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r2/c1/Conv/weights:0
+Model/g_A/r2/c1/Conv/biases:0
+Model/g_A/r2/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r2/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r2/c2/Conv/weights:0
+Model/g_A/r2/c2/Conv/biases:0
+Model/g_A/r2/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r2/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r3/c1/Conv/weights:0
+Model/g_A/r3/c1/Conv/biases:0
+Model/g_A/r3/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r3/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r3/c2/Conv/weights:0
+Model/g_A/r3/c2/Conv/biases:0
+Model/g_A/r3/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r3/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r4/c1/Conv/weights:0
+Model/g_A/r4/c1/Conv/biases:0
+Model/g_A/r4/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r4/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r4/c2/Conv/weights:0
+Model/g_A/r4/c2/Conv/biases:0
+Model/g_A/r4/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r4/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r5/c1/Conv/weights:0
+Model/g_A/r5/c1/Conv/biases:0
+Model/g_A/r5/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r5/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r5/c2/Conv/weights:0
+Model/g_A/r5/c2/Conv/biases:0
+Model/g_A/r5/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r5/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r6/c1/Conv/weights:0
+Model/g_A/r6/c1/Conv/biases:0
+Model/g_A/r6/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r6/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r6/c2/Conv/weights:0
+Model/g_A/r6/c2/Conv/biases:0
+Model/g_A/r6/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r6/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r7/c1/Conv/weights:0
+Model/g_A/r7/c1/Conv/biases:0
+Model/g_A/r7/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r7/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r7/c2/Conv/weights:0
+Model/g_A/r7/c2/Conv/biases:0
+Model/g_A/r7/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r7/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r8/c1/Conv/weights:0
+Model/g_A/r8/c1/Conv/biases:0
+Model/g_A/r8/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r8/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r8/c2/Conv/weights:0
+Model/g_A/r8/c2/Conv/biases:0
+Model/g_A/r8/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r8/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r9/c1/Conv/weights:0
+Model/g_A/r9/c1/Conv/biases:0
+Model/g_A/r9/c1/instance_norm/InstanceNorm/beta:0
+Model/g_A/r9/c1/instance_norm/InstanceNorm/gamma:0
+Model/g_A/r9/c2/Conv/weights:0
+Model/g_A/r9/c2/Conv/biases:0
+Model/g_A/r9/c2/instance_norm/InstanceNorm/beta:0
+Model/g_A/r9/c2/instance_norm/InstanceNorm/gamma:0
+Model/g_A/c4/Conv2d_transpose/weights:0
+Model/g_A/c4/Conv2d_transpose/biases:0
+Model/g_A/c4/instance_norm/InstanceNorm/beta:0
+Model/g_A/c4/instance_norm/InstanceNorm/gamma:0
+Model/g_A/c5/Conv2d_transpose/weights:0
+Model/g_A/c5/Conv2d_transpose/biases:0
+Model/g_A/c5/instance_norm/InstanceNorm/beta:0
+Model/g_A/c5/instance_norm/InstanceNorm/gamma:0
+Model/g_A/c6/Conv/weights:0
+Model/g_A/c6/Conv/biases:0
+Model/e_B/c1/Conv/weights:0
+Model/e_B/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r1/c1/Conv/weights:0
+Model/e_B/r1/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r1/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r1/c2/Conv/weights:0
+Model/e_B/r1/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r1/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r2/c1/Conv/weights:0
+Model/e_B/r2/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r2/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r2/c2/Conv/weights:0
+Model/e_B/r2/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r2/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r3/c1/Conv/weights:0
+Model/e_B/r3/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r3/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r3/c2/Conv/weights:0
+Model/e_B/r3/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r3/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r4/c1/Conv/weights:0
+Model/e_B/r4/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r4/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r4/c2/Conv/weights:0
+Model/e_B/r4/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r4/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r5/c1/Conv/weights:0
+Model/e_B/r5/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r5/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r5/c2/Conv/weights:0
+Model/e_B/r5/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r5/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r6/c1/Conv/weights:0
+Model/e_B/r6/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r6/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r6/c2/Conv/weights:0
+Model/e_B/r6/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r6/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r7/c1/Conv/weights:0
+Model/e_B/r7/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r7/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r7/c2/Conv/weights:0
+Model/e_B/r7/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r7/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r8/c1/Conv/weights:0
+Model/e_B/r8/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r8/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r8/c2/Conv/weights:0
+Model/e_B/r8/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r8/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r9/c1/Conv/weights:0
+Model/e_B/r9/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r9/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r9/c2/Conv/weights:0
+Model/e_B/r9/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r9/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r10/c1/Conv/weights:0
+Model/e_B/r10/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r10/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r10/c2/Conv/weights:0
+Model/e_B/r10/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r10/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r11/c1/Conv/weights:0
+Model/e_B/r11/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r11/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r11/c2/Conv/weights:0
+Model/e_B/r11/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r11/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/r12/c1/Conv/weights:0
+Model/e_B/r12/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/r12/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/r12/c2/Conv/weights:0
+Model/e_B/r12/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/r12/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/d1/c1/weights:0
+Model/e_B/d1/c1/biases:0
+Model/e_B/d1/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/d1/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/d1/c2/weights:0
+Model/e_B/d1/c2/biases:0
+Model/e_B/d1/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/d1/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/d2/c1/weights:0
+Model/e_B/d2/c1/biases:0
+Model/e_B/d2/c1/batch_norm/BatchNorm/beta:0
+Model/e_B/d2/c1/batch_norm/BatchNorm/gamma:0
+Model/e_B/d2/c2/weights:0
+Model/e_B/d2/c2/biases:0
+Model/e_B/d2/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/d2/c2/batch_norm/BatchNorm/gamma:0
+Mode2020-02-15 16:01:42.504520: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2020-02-15 16:01:43.391831: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: TITAN Xp major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:0d:00.0
+totalMemory: 11.90GiB freeMemory: 11.74GiB
+2020-02-15 16:01:43.391888: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: TITAN Xp, pci bus id: 0000:0d:00.0, compute capability: 6.1)
+Validation (1000) dsc:0.452180/0.081338  assd:3.416566/0.373697
+Validation (2000) dsc:0.548256/0.039047  assd:3.273193/0.297980
+Validation (3000) dsc:0.561942/0.040371  assd:2.855167/0.326493
+Validation (4000) dsc:0.608519/0.033671  assd:2.679464/0.148064
+Validation (5000) dsc:0.650395/0.042935  assd:2.574455/0.219194
+Validation (6000) dsc:0.619242/0.051721  assd:2.675751/0.266689
+Validation (7000) dsc:0.627014/0.040229  assd:2.795889/0.367071
+Validation (8000) dsc:0.647203/0.053202  assd:2.422642/0.237297
+Validation (9000) dsc:0.667371/0.036096  assd:2.318698/0.188564
+Validation (10000) dsc:0.664794/0.035248  assd:2.269123/0.156521
+Validation (11000) dsc:0.669050/0.042269  assd:2.220590/0.150741
+Validation (12000) dsc:0.677307/0.035317  assd:2.161726/0.176880
+Validation (13000) dsc:0.525319/0.062942  assd:3.010154/0.391880
+Validation (14000) dsc:0.664596/0.039092  assd:2.223757/0.160385
+Validation (15000) dsc:0.694930/0.034473  assd:2.137313/0.149777
+Validation (16000) dsc:0.700844/0.035598  assd:2.088947/0.167890
+Validation (17000) dsc:0.716906/0.031010  assd:1.920553/0.133769
+Validation (18000) dsc:0.713544/0.032078  assd:1.935286/0.185937
+Validation (19000) dsc:0.655347/0.042873  assd:2.360790/0.248969
+Validation (20000) dsc:0.692371/0.031341  assd:2.144918/0.141650
+Validation (21000) dsc:0.699407/0.031975  assd:2.094862/0.150484
+Validation (22000) dsc:0.715265/0.028072  assd:1.859311/0.143515
+Validation (23000) dsc:0.724385/0.023618  assd:1.881208/0.121240
+Validation (24000) dsc:0.720219/0.030703  assd:1.923014/0.165684
+Validation (25000) dsc:0.725359/0.034610  assd:1.910644/0.190584
+Validation (26000) dsc:0.725353/0.025777  assd:1.863790/0.145016
+Validation (27000) dsc:0.748165/0.023242  assd:1.709653/0.126970
+Validation (28000) dsc:0.728703/0.029417  assd:1.871402/0.140646
+Validation (29000) dsc:0.744383/0.028180  assd:1.747268/0.161645
+Validation (30000) dsc:0.717484/0.036945  assd:1.893302/0.198036
+Validation (31000) dsc:0.681038/0.044057  assd:2.308558/0.415148
+Validation (32000) dsc:0.734582/0.032498  assd:1.838713/0.154361
+Validation (33000) dsc:0.732821/0.030047  assd:1.812540/0.142071
+Validation (34000) dsc:0.732746/0.024985  assd:1.812853/0.139750
+Validation (35000) dsc:0.750012/0.021226  assd:1.690999/0.124512
+Validation (36000) dsc:0.748687/0.029514  assd:1.650576/0.151585
+Validation (37000) dsc:0.758844/0.023580  assd:1.675134/0.126420
+Validation (38000) dsc:0.742182/0.034050  assd:1.782914/0.207195
+Validation (39000) dsc:0.755014/0.026377  assd:1.694040/0.140899
+Validation (40000) dsc:0.752423/0.026422  assd:1.709544/0.164115
+Validation (41000) dsc:0.737046/0.031632  assd:1.826672/0.190807
+Validation (42000) dsc:0.755237/0.026886  assd:1.688319/0.159596
+Validation (43000) dsc:0.736845/0.030487  assd:1.759964/0.190373
+Validation (44000) dsc:0.758880/0.023106  assd:1.698831/0.166043
+Validation (45000) dsc:0.742401/0.032383  assd:1.707412/0.194148
+Validation (46000) dsc:0.760521/0.026191  assd:1.669439/0.153002
+Validation (47000) dsc:0.742168/0.031213  assd:1.806527/0.185008
+Validation (48000) dsc:0.733089/0.032760  assd:1.901053/0.183348
+Validation (49000) dsc:0.749511/0.030050  assd:1.740060/0.168043
+Validation (50000) dsc:0.764634/0.025378  assd:1.635233/0.178885
+l/e_B/c2/Conv/weights:0
+Model/e_B/c2/batch_norm/BatchNorm/beta:0
+Model/e_B/c2/batch_norm/BatchNorm/gamma:0
+Model/e_B/c3/Conv/weights:0
+Model/e_B/c3/batch_norm/BatchNorm/beta:0
+Model/e_B/c3/batch_norm/BatchNorm/gamma:0
+Model/de_B/c1/Conv/weights:0
+Model/de_B/c1/instance_norm/InstanceNorm/beta:0
+Model/de_B/c1/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r1/c1/Conv/weights:0
+Model/de_B/r1/c1/instance_norm/InstanceNorm/beta:0
+Model/de_B/r1/c1/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r1/c2/Conv/weights:0
+Model/de_B/r1/c2/instance_norm/InstanceNorm/beta:0
+Model/de_B/r1/c2/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r2/c1/Conv/weights:0
+Model/de_B/r2/c1/instance_norm/InstanceNorm/beta:0
+Model/de_B/r2/c1/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r2/c2/Conv/weights:0
+Model/de_B/r2/c2/instance_norm/InstanceNorm/beta:0
+Model/de_B/r2/c2/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r3/c1/Conv/weights:0
+Model/de_B/r3/c1/instance_norm/InstanceNorm/beta:0
+Model/de_B/r3/c1/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r3/c2/Conv/weights:0
+Model/de_B/r3/c2/instance_norm/InstanceNorm/beta:0
+Model/de_B/r3/c2/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r4/c1/Conv/weights:0
+Model/de_B/r4/c1/instance_norm/InstanceNorm/beta:0
+Model/de_B/r4/c1/instance_norm/InstanceNorm/gamma:0
+Model/de_B/r4/c2/Conv/weights:0
+Model/de_B/r4/c2/instance_norm/InstanceNorm/beta:0
+Model/de_B/r4/c2/instance_norm/InstanceNorm/gamma:0
+Model/de_B/c3/Conv2d_transpose/weights:0
+Model/de_B/c3/Conv2d_transpose/biases:0
+Model/de_B/c3/instance_norm/InstanceNorm/beta:0
+Model/de_B/c3/instance_norm/InstanceNorm/gamma:0
+Model/de_B/c4/Conv2d_transpose/weights:0
+Model/de_B/c4/Conv2d_transpose/biases:0
+Model/de_B/c4/instance_norm/InstanceNorm/beta:0
+Model/de_B/c4/instance_norm/InstanceNorm/gamma:0
+Model/de_B/c5/Conv2d_transpose/weights:0
+Model/de_B/c5/Conv2d_transpose/biases:0
+Model/de_B/c5/instance_norm/InstanceNorm/beta:0
+Model/de_B/c5/instance_norm/InstanceNorm/gamma:0
+Model/de_B/c6/Conv/weights:0
+Model/s_B/c8/Conv/weights:0
+Model/s_B_ll/c8/Conv/weights:0
+Model/d_P/c1/Conv/weights:0
+Model/d_P/c2/Conv/weights:0
+Model/d_P/c2/instance_norm/InstanceNorm/beta:0
+Model/d_P/c2/instance_norm/InstanceNorm/gamma:0
+Model/d_P/c3/Conv/weights:0
+Model/d_P/c3/instance_norm/InstanceNorm/beta:0
+Model/d_P/c3/instance_norm/InstanceNorm/gamma:0
+Model/d_P/c4/Conv/weights:0
+Model/d_P/c4/instance_norm/InstanceNorm/beta:0
+Model/d_P/c4/instance_norm/InstanceNorm/gamma:0
+Model/d_P/c5/Conv/weights:0
+Model/d_P_ll/c1/Conv/weights:0
+Model/d_P_ll/c2/Conv/weights:0
+Model/d_P_ll/c2/instance_norm/InstanceNorm/beta:0
+Model/d_P_ll/c2/instance_norm/InstanceNorm/gamma:0
+Model/d_P_ll/c3/Conv/weights:0
+Model/d_P_ll/c3/instance_norm/InstanceNorm/beta:0
+Model/d_P_ll/c3/instance_norm/InstanceNorm/gamma:0
+Model/d_P_ll/c4/Conv/weights:0
+Model/d_P_ll/c4/instance_norm/InstanceNorm/beta:0
+Model/d_P_ll/c4/instance_norm/InstanceNorm/gamma:0
+Model/d_P_ll/c5/Conv/weights:0

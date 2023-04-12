@@ -3,7 +3,7 @@
   "target_train_pth": "./data/datalist/training_B.txt",
   "source_val_pth": "./data/datalist/validation_A.txt",
   "target_val_pth": "./data/datalist/validation_B.txt",
-  "output_root_dir": "./output",
+  "output_root_dir": "/home/xuchen/training/checkpoints/SIFA",
   "pool_size": 50,
   "_LAMBDA_A": 10,
   "_LAMBDA_B": 10,
@@ -13,7 +13,7 @@
   "max_step": 20000,
   "keep_rate_value": 1.0,
   "is_training_value": 1,
-  "batch_size": 8,
+  "batch_size": 4,
   "lr_gan_decay": 0,
   "to_restore": 0,
   "checkpoint_dir": " "

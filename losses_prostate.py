@@ -24,12 +24,12 @@ def lsgan_loss_discriminator(prob_real_is_real, prob_fake_is_real):
             tf.reduce_mean(tf.squared_difference(prob_fake_is_real, 0))) * 0.5
 
 
-def _softmax_weighted_loss(logits, gt):
+def _softmax_weighted_loss(logits, gt, num_cls):
     """
     Calculate weighted cross-entropy loss.
     """
     softmaxpred = tf.nn.softmax(logits)
-    for i in range(5):
+    for i in range(num_cls):
         gti = gt[:,:,:,i]
         predi = softmaxpred[:,:,:,i]
         weighted = 1-(tf.reduce_sum(gti) / tf.reduce_sum(gt))
@@ -43,27 +43,27 @@ def _softmax_weighted_loss(logits, gt):
     return loss
 
 
-def _dice_loss_fun(logits, gt):
+def _dice_loss_fun(logits, gt, num_cls):
     """
     Calculate dice loss.
     """
     dice = 0
     eps = 1e-7
     softmaxpred = tf.nn.softmax(logits)
-    for i in range(5):
+    for i in range(num_cls):
         inse = tf.reduce_sum(softmaxpred[:, :, :, i]*gt[:, :, :, i])
         l = tf.reduce_sum(softmaxpred[:, :, :, i]*softmaxpred[:, :, :, i])
         r = tf.reduce_sum(gt[:, :, :, i])
         dice += 2.0 * inse/(l+r+eps)
 
-    return 1 - 1.0 * dice / 5
+    return 1 - 1.0 * dice / num_cls
 
 
-def task_loss(prediction, gt):
+def task_loss(prediction, gt, num_cls):
     """
     Calculate task loss, which consists of the weighted cross entropy loss and dice loss
     """
-    ce_loss = _softmax_weighted_loss(prediction, gt)
-    dice_loss = _dice_loss_fun(prediction, gt)
+    ce_loss = _softmax_weighted_loss(prediction, gt, num_cls)
+    dice_loss = _dice_loss_fun(prediction, gt, num_cls)
 
     return ce_loss, dice_loss
